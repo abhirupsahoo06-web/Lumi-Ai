@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumi Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-theme="dark">
+      <canvas class="particles" id="particles" aria-hidden="true"></canvas>
+      <div class="ambient ambient--one" aria-hidden="true"></div>
+      <div class="ambient ambient--two" aria-hidden="true"></div>
+
+      <aside class="sidebar glass-panel" id="sidebar">
+        <div class="sidebar__header">
+          <div class="brand">
+            <div class="brand__glyph"><span></span></div>
+            <div class="brand__copy">
+              <strong>Lumi Nexus</strong>
+              <span>AI Operating Layer</span>
+            </div>
+          </div>
+          <button class="ghost-button ghost-button--icon" id="sidebar-toggle" type="button" aria-label="Toggle sidebar">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <button class="nav__item is-active" type="button">
+            <span class="nav__bullet"></span>
+            <span class="nav__label">Dashboard</span>
+          </button>
+          <button class="nav__item" type="button">
+            <span class="nav__bullet"></span>
+            <span class="nav__label">Chat</span>
+          </button>
+          <button class="nav__item" type="button">
+            <span class="nav__bullet"></span>
+            <span class="nav__label">Projects</span>
+          </button>
+          <button class="nav__item" type="button">
+            <span class="nav__bullet"></span>
+            <span class="nav__label">Analytics</span>
+          </button>
+          <button class="nav__item" type="button">
+            <span class="nav__bullet"></span>
+            <span class="nav__label">Settings</span>
+          </button>
+        </nav>
+
+        <section class="sidebar-card">
+          <p class="sidebar-card__eyebrow">Mission Control</p>
+          <h2>Built for teams that expect precision and polish.</h2>
+          <ul class="sidebar-card__list">
+            <li>Strategic chat and planning</li>
+            <li>Premium keyboard-first workflow</li>
+            <li>Memory, tools, and insights panels</li>
+          </ul>
+        </section>
+
+        <footer class="sidebar__footer">
+          <div class="profile-mini">
+            <div class="profile-mini__avatar"></div>
+            <div>
+              <strong>Aria Young</strong>
+              <span>Product Design Lead</span>
+            </div>
+          </div>
+        </footer>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar glass-panel">
+          <div class="topbar__left">
+            <div class="status-cluster">
+              <div class="status-indicator status-indicator--online" id="status-indicator">
+                <span></span>
+                <strong id="status-label">Online</strong>
+              </div>
+              <p class="status-copy" id="status-copy">Ready for your next prompt.</p>
+            </div>
+
+            <label class="search-shell" for="global-search">
+              <span class="search-shell__icon">Search</span>
+              <input id="global-search" type="search" placeholder="Search conversations, projects, or memory" />
+            </label>
+          </div>
+
+          <div class="topbar__right">
+            <label class="language-select" for="language-select">
+              <span>Language</span>
+              <select id="language-select">
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Bengali</option>
+                <option>Spanish</option>
+              </select>
+            </label>
+
+            <button class="ghost-button" id="theme-toggle" type="button">Theme</button>
+            <button class="ghost-button" id="sound-toggle" type="button">Sound On</button>
+
+            <button class="profile-chip" type="button" aria-label="Profile">
+              <span class="profile-chip__avatar"></span>
+              <span class="profile-chip__copy">
+                <strong>Aria</strong>
+                <span>Workspace owner</span>
+              </span>
+            </button>
+          </div>
+        </header>
+
+        <section class="hero glass-panel">
+          <div class="hero__copy">
+            <p class="eyebrow">Ultra Premium Desktop Workspace</p>
+            <h1>An AI command center designed to feel expensive, clear, and inevitable.</h1>
+            <p class="hero__lede">
+              A laptop-first experience with cinematic depth, live status intelligence,
+              precision chat ergonomics, and the kind of calm visual confidence you expect
+              from a category-defining product.
+            </p>
+            <div class="hero__chips">
+              <span>Live AI status</span>
+              <span>Keyboard-first input</span>
+              <span>Memory-aware workflow</span>
+            </div>
+          </div>
+
+          <div class="hero__visual">
+            <div class="avatar-core" id="avatar-core">
+              <div class="avatar-core__halo avatar-core__halo--one"></div>
+              <div class="avatar-core__halo avatar-core__halo--two"></div>
+              <div class="avatar-core__ring"></div>
+              <div class="avatar-core__face"><span></span></div>
+            </div>
+            <div class="hero__metrics">
+              <article><span>Latency</span><strong>118 ms</strong></article>
+              <article><span>Memory</span><strong>Context Synced</strong></article>
+              <article><span>Confidence</span><strong>98.4%</strong></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="workspace-grid">
+          <section class="chat-shell glass-panel">
+            <div class="chat-shell__header">
+              <div>
+                <p class="eyebrow">Conversation Engine</p>
+                <h2>Executive Product Strategist</h2>
+              </div>
+              <div class="chat-shell__actions">
+                <button class="ghost-button" id="new-chat" type="button">New Session</button>
+                <button class="ghost-button" type="button">Share</button>
+              </div>
+            </div>
+
+            <div class="message-list" id="message-list" aria-live="polite"></div>
+
+            <div class="typing-row" id="typing-row" hidden>
+              <div class="typing-wave">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="typing-skeleton">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="suggestion-row">
+              <button class="hint-chip" type="button" data-prompt="Design a premium launch page for an AI SaaS platform with a stronger conversion narrative.">Launch page strategy</button>
+              <button class="hint-chip" type="button" data-prompt="Write a refined onboarding flow for an enterprise AI workspace with confident microcopy.">Onboarding flow</button>
+              <button class="hint-chip" type="button" data-prompt="Plan a 60 day roadmap for shipping a voice-first assistant product.">60 day roadmap</button>
+            </div>
+
+            <form class="floating-composer" id="composer">
+              <button class="floating-composer__icon" id="attach-button" type="button" aria-label="Attachment placeholder">+</button>
+              <button class="floating-composer__icon" id="mic-button" type="button" aria-label="Voice input placeholder">Mic</button>
+              <label class="floating-composer__field" for="prompt-input">
+                <textarea id="prompt-input" rows="1" placeholder="Ask Lumi to design, analyze, write, or plan with executive-level clarity..."></textarea>
+              </label>
+              <button class="floating-composer__send" type="submit">Send</button>
+            </form>
+          </section>
+
+          <aside class="right-rail glass-panel" id="right-rail">
+            <div class="right-rail__header">
+              <div>
+                <p class="eyebrow">AI Insight Rail</p>
+                <h3>Memory, tools, and live state</h3>
+              </div>
+              <button class="ghost-button" id="rail-toggle" type="button">Collapse</button>
+            </div>
+
+            <section class="rail-card">
+              <div class="rail-card__header">
+                <strong>Live Memory</strong>
+                <span>Updated now</span>
+              </div>
+              <ul class="rail-list">
+                <li>User prefers premium futuristic UI with desktop-first emphasis.</li>
+                <li>Sound feedback and theme switching should stay available.</li>
+                <li>Mobile companion should visually match the laptop product.</li>
+              </ul>
+            </section>
+
+            <section class="rail-card">
+              <div class="rail-card__header">
+                <strong>Workspace Stats</strong>
+                <span>Healthy</span>
+              </div>
+              <div class="stat-grid">
+                <article><span>AI Load</span><strong>42%</strong></article>
+                <article><span>Sessions</span><strong>18</strong></article>
+                <article><span>Projects</span><strong>7</strong></article>
+                <article><span>Sync</span><strong>Realtime</strong></article>
+              </div>
+            </section>
+
+            <section class="rail-card">
+              <div class="rail-card__header">
+                <strong>Smart Tools</strong>
+                <span>Ready</span>
+              </div>
+              <div class="tool-list">
+                <button class="tool-chip" type="button">Summarize</button>
+                <button class="tool-chip" type="button">Rewrite</button>
+                <button class="tool-chip" type="button">Code</button>
+                <button class="tool-chip" type="button">Roadmap</button>
+                <button class="tool-chip" type="button">Research</button>
+                <button class="tool-chip" type="button">Pitch</button>
+              </div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
